@@ -1,0 +1,19 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="MediatR" Version="12.4.1" />
+  </ItemGroup>
+	<ItemGroup>
+		<Protobuf Include="Contracts\Proto\WeatherForcastService.proto" />
+	</ItemGroup>
+	<ItemGroup>
+	  <Folder Include="Contracts\" />
+	</ItemGroup>
+
+</Project>
