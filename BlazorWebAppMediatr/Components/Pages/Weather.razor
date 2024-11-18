@@ -49,7 +49,16 @@ else
         Console.WriteLine("OnInitialize");
         _cts = new CancellationTokenSource();
         // Simulate asynchronous loading to demonstrate streaming rendering
+        //Request-response
+        var response = await MediatR.Send(new WeatherRequest());
+        forecasts = response.Forecasts.Select(weather => new WeatherData()
+        {
+            Date = weather.Date.ToString(),
+            TemperatureC = weather.TemperatureC,
+            Summary = weather.Summary
+        }).ToArray();
 
+        //Basically event handling
         await Task.Run(async () =>
         {
             try
